@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		8886CBD02D646476006F8AAB /* ArchitectureTestApp */ = {
+		8886CCF92D6851FC006F8AAB /* ArchitectureTestApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ArchitectureTestApp;
 			sourceTree = "<group>";
@@ -32,7 +32,7 @@
 		8886CBC52D646476006F8AAB = {
 			isa = PBXGroup;
 			children = (
-				8886CBD02D646476006F8AAB /* ArchitectureTestApp */,
+				8886CCF92D6851FC006F8AAB /* ArchitectureTestApp */,
 				8886CBCF2D646476006F8AAB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				8886CBD02D646476006F8AAB /* ArchitectureTestApp */,
+				8886CCF92D6851FC006F8AAB /* ArchitectureTestApp */,
 			);
 			name = ArchitectureTestApp;
 			packageProductDependencies = (
