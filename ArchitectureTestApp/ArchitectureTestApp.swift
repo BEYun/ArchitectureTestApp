@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct ArchitectureTestApp: App {
+    var isAdmin: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

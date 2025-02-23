@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+public protocol GetPlayerListUseCase {
+    func execute() async -> Output<GetPlayerListOutput, Error>
+}

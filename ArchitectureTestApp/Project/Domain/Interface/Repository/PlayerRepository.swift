@@ -8,8 +8,12 @@
 import Foundation
 
 public protocol PlayerRepository {
-    func getPlayer(id: Int) throws -> ResponseDTO
-    func addPlayer() throws -> ResponseDTO
-    func editPlayer() throws -> ResponseDTO
-    func deletePlayer() throws -> ResponseDTO
+    func getPlayer(requestDTO: GetPlayerRequestDTO) async throws -> GetPlayerResponseDTO
+    func addPlayer() async throws -> Bool
+    func editPlayer() async throws -> Bool
+    func deletePlayer() async throws -> Bool
+    
+    func getPlayerList() async throws -> GetPlayerListResponseDTO
+    
+    func addComment(requestDTO: AddCommentRequestDTO) async -> Bool
 }

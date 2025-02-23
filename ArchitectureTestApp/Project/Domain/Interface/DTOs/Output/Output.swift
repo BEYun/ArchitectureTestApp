@@ -8,6 +8,6 @@
 import Foundation
 
 @frozen public enum Output<Success, Failure> {
-    case onSuccess(with: Success)
-    case onFailure(with: Failure)
+    case onSuccess(output: Success)
+    case onFailure(error: Failure)
 }

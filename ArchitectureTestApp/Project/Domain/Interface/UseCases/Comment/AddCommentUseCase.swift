@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+public protocol AddCommentUseCase {
+    func execute(input: AddCommentInput) async -> Output<Void, Error>
+}

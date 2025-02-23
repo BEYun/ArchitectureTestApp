@@ -11,8 +11,8 @@
  - Get
 
 ## Like
- - Add
+ - Add(사용자)
 
 ## Comment
- - Add
+ - Add(사용자)
 

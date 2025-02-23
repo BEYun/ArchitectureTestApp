@@ -10,5 +10,5 @@ import Foundation
 struct PhysicalInfo {
     let age: Int
     let height: Double
-    let weight: Int
+    let weight: Double
 }

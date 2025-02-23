@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol GetPlayerUseCase {
-    func execute(with: GetPlayerInput) -> Output<GetPlayerOutput, String>
+    func execute(input: GetPlayerInput) async -> Output<GetPlayerOutput, Error>
 }
