@@ -10,9 +10,11 @@ import Foundation
 class PlayerDetailUseCaseImpl: PlayerDetailUseCase {
     var getPlayerUseCase: GetPlayerUseCase
     var addCommentUseCase: AddCommentUseCase
+    var editPlayer: EditPlayerUseCase
     
-    init(getPlayerUseCase: GetPlayerUseCase, addCommentUseCase: AddCommentUseCase) {
+    init(getPlayerUseCase: GetPlayerUseCase, addCommentUseCase: AddCommentUseCase, editPlayer: EditPlayerUseCase) {
         self.getPlayerUseCase = getPlayerUseCase
         self.addCommentUseCase = addCommentUseCase
+        self.editPlayer = editPlayer
     }
 }

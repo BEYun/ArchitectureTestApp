@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct PlayerDetailView: View {
-    @StateObject var viewModel: PlayerDetailPresenter
+    @StateObject var persenter: PlayerDetailPresenter
     @Environment(\.isAdmin) var isAdmin
     
     init(id: Int) {
-        self._viewModel = StateObject(wrappedValue: PlayerDetailPresenter(id: id))
+        self._persenter = StateObject(wrappedValue: PlayerDetailPresenter(id: id))
     }
     
     var body: some View {
-        if !viewModel.isLoading {
+        if !persenter.isLoading {
             ProgressView("선수 정보 불러오는 중...")
                 .task {
-                    await viewModel.getPlayerDetail()
+                    await persenter.getPlayerDetail()
                 }
             
         } else {
@@ -28,11 +28,11 @@ struct PlayerDetailView: View {
                     .font(.title)
                     .padding(.bottom, 20)
                 
-                Text("이름 : \(viewModel.name)")
-                Text("나이 : \(viewModel.age)세")
-                Text("키 : \(Int(viewModel.height))cm")
-                Text("몸무게 : \(Int(viewModel.weight))kg")
-                if let salary = viewModel.salary,
+                Text("이름 : \(persenter.name)")
+                Text("나이 : \(persenter.age)세")
+                Text("키 : \(Int(persenter.height))cm")
+                Text("몸무게 : \(Int(persenter.weight))kg")
+                if let salary = persenter.salary,
                    self.isAdmin {
                     Text("연봉 : \(salary)원")
                         .font(.headline)
@@ -43,7 +43,7 @@ struct PlayerDetailView: View {
                     .padding(.bottom, 20)
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    ForEach(viewModel.comment, id:\.self) { comment in
+                    ForEach(persenter.comment, id:\.self) { comment in
                         Text(comment)
                             .foregroundStyle(.white)
                     }
@@ -52,10 +52,10 @@ struct PlayerDetailView: View {
                 .background(.blue)
                 
                 if !self.isAdmin {
-                    TextField("댓글을 입력하세요", text: $viewModel.text)
+                    TextField("댓글을 입력하세요", text: $persenter.text)
                         .onSubmit {
                             Task {
-                                await viewModel.addComment()
+                                await persenter.addComment()
                             }
                         }
                         .border(.gray)

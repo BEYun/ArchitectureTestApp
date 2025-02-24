@@ -14,4 +14,5 @@ import Foundation
 public protocol PlayerDetailUseCase {
     var getPlayerUseCase: GetPlayerUseCase { get }
     var addCommentUseCase: AddCommentUseCase { get }
+    var editPlayer: EditPlayerUseCase { get }
 }

@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+public protocol EditPlayerUseCase {
+    func callAsFunction(input: String) -> Bool
+}

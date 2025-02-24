@@ -12,21 +12,26 @@ class PlayerDetailPresenter: ObservableObject {
     
     // MARK: 의존성 주입 문제 체크!!
     init(id: Int) {
-        self.id = id
         let repository: PlayerRepositoryImpl = .init()
         let mapper: PlayerMapper = .init()
         let getPlayerUseCase: GetPlayerUseCaseImpl = .init(repository: repository, mapper: mapper)
         let addCommentUseCase: AddCommentUseCaseImpl = .init(repository: repository)
-        let playerDetailUseCase: PlayerDetailUseCaseImpl = .init(getPlayerUseCase: getPlayerUseCase, addCommentUseCase: addCommentUseCase)
+        let editPlayerUseCase: EditPlayerUseCaseImpl = .init()
+        let playerDetailUseCase: PlayerDetailUseCaseImpl = .init(getPlayerUseCase: getPlayerUseCase, addCommentUseCase: addCommentUseCase, editPlayer: editPlayerUseCase)
+        
+        self.id = id
         self.playerDetailUseCase = playerDetailUseCase
     }
     
     private let id: Int
     
+    // AView ViewModel State
     @Published private(set) var name: String = ""
     @Published private(set) var age: Int = 0
     @Published private(set) var height: Double = 0
     @Published private(set) var weight: Double = 0
+    
+    // BView ViewModel State
     @Published private(set) var salary: Int? = nil
     @Published private(set) var likeCount: Int = 0
     @Published private(set) var comment: [String] = []
@@ -43,7 +48,9 @@ class PlayerDetailPresenter: ObservableObject {
         let input: GetPlayerInput = .init(id: self.id)
         
         // MARK: CallAsFunction 사용할 경우
-        // playerDetailUseCase.getPlayer(input: Input)으로 사용가능
+        // playerDetailUseCase.editPlayer(input: Input)으로 사용가능
+        let exampleOutput: Bool = playerDetailUseCase.editPlayer(input: "")
+        
         let output: Output<GetPlayerOutput, Error> = await playerDetailUseCase.getPlayerUseCase.execute(input: input)
         
         switch output {
