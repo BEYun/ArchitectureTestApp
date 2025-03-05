@@ -8,6 +8,8 @@
 import Foundation
 
 class PlayerMapper: PlayerMapperInterface {
+    static var shared: PlayerMapperInterface = PlayerMapper()
+    
     func mapping(dto: GetPlayerResponseDTO) -> Player {
         let id: Int = dto.id
         let name: String = dto.name

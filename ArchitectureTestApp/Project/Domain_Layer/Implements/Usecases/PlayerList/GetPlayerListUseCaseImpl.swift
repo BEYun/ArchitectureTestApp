@@ -8,12 +8,11 @@
 import Foundation
 
 class GetPlayerListUseCaseImpl: GetPlayerListUseCase {
-    let repository: PlayerRepository
-    let mapper: PlayerMapperInterface
+    private let repository: PlayerRepository
+    private let mapper: PlayerMapperInterface = PlayerMapper.shared
     
-    init(repository: PlayerRepository, mapper: PlayerMapperInterface) {
+    init(repository: PlayerRepository) {
         self.repository = repository
-        self.mapper = mapper
     }
     
     func execute() async -> Output<GetPlayerListOutput, Error> {

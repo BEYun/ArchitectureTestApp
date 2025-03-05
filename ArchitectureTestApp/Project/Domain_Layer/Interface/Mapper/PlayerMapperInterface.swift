@@ -8,6 +8,8 @@
 import Foundation
 
 protocol PlayerMapperInterface {
+    static var shared: PlayerMapperInterface { get }
+    
     // MARK: From DTO To Entity
     func mapping(dto: GetPlayerResponseDTO) -> Player
     func mapping(dto: GetPlayerListResponseDTO) -> [Player]
